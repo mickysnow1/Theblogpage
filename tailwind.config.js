@@ -1,4 +1,7 @@
-// tailwind.config.js
+import defaultTheme from 'tailwindcss/defaultTheme';
+import typography from '@tailwindcss/typography';
+// Remove the line-clamp import: import lineClamp from '@tailwindcss/line-clamp';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -6,10 +9,15 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        serif: ['Lora', ...defaultTheme.fontFamily.serif],
+      },
+    },
   },
   plugins: [
-    require('@tailwindcss/typography'), // Add the typography plugin
+    typography,
+    // Remove lineClamp from here: lineClamp,
   ],
 };
-
